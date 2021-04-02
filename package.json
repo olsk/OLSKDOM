@@ -1,4 +1,7 @@
 {
   "name": "OLSKDOM",
-  "main": "main.js"
+  "main": "main.js",
+  "devDependencies": {
+    "jsdom": "latest"
+  }
 }
