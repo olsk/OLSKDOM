@@ -7,8 +7,8 @@ const mod = {
 
 		const doc = debug.JSDOM ? debug.JSDOM(inputData) : new DOMParser().parseFromString(inputData, 'text/html');
 
-		return Array.from(doc.querySelectorAll('[property],[itemprop],[rel]')).reduce(function (coll, item) {
-			const key = item.getAttribute('property') || item.getAttribute('itemprop') || item.getAttribute('rel');
+		return Array.from(doc.querySelectorAll('[name],[property],[itemprop],[rel]')).reduce(function (coll, item) {
+			const key = item.getAttribute('name') || item.getAttribute('property') || item.getAttribute('itemprop') || item.getAttribute('rel');
 
 			if (!key) {
 				return coll;

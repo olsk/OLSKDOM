@@ -28,6 +28,14 @@ describe('OLSKDOMMetadata', function test_OLSKDOMMetadata () {
 		});
 	});
 
+	it('sets meta:name', function () {
+		const name = Math.random().toString();
+		const content = Math.random().toString();
+		deepEqual(_OLSKDOMMetadata(`<meta name="${ name }" content="${ content }" />`), {
+			[name]: content,
+		});
+	});
+
 	it('sets meta:property', function () {
 		const property = Math.random().toString();
 		const content = Math.random().toString();
