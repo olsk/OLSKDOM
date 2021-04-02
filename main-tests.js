@@ -69,4 +69,12 @@ describe('OLSKDOMMetadata', function test_OLSKDOMMetadata () {
 		});
 	});
 
+	it('sets link:rel', function () {
+		const rel = Math.random().toString();
+		const href = Math.random().toString();
+		deepEqual(_OLSKDOMMetadata(`<link rel="${ rel }" href="${ href }" />`), {
+			[rel]: href,
+		});
+	});
+
 });
