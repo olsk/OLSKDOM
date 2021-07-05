@@ -85,4 +85,45 @@ describe('OLSKDOMMetadata', function test_OLSKDOMMetadata () {
 		});
 	});
 
+	context('_OLSKDOMMetadataFunding', function () {
+		
+		mod.OLSKDOMMetadataFundingDomains().forEach(function (domain) {
+
+			context(domain, function () {
+
+				const link = `${ uRandomElement('http', 'https') }://${ domain }/`;
+
+				it('excludes if no info', function () {
+					deepEqual(_OLSKDOMMetadata(`<a href="${ link }"></a>`), {});
+				});
+				
+				it('includes if info', function () {
+					const item = link + Math.random().toString();
+					deepEqual(_OLSKDOMMetadata(`<a href="${ item }"></a>`), {
+						_OLSKDOMMetadataFunding: [item],
+					});
+				});
+			
+			});
+			
+		});
+
+		it('excludes if relative', function () {
+			deepEqual(_OLSKDOMMetadata(`<a href="/${ Math.random().toString() }"></a>`), {});
+		});		
+		
+	});
+
+});
+
+describe('OLSKDOMMetadataFundingDomains', function test_OLSKDOMMetadataFundingDomains () {
+
+	it('returns array', function () {
+		deepEqual(mod.OLSKDOMMetadataFundingDomains(), [
+			'opencollective.com',
+			'github.com/sponsors',
+			'patreon.com',
+		]);
+	});
+
 });
