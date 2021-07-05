@@ -21,14 +21,14 @@ describe('OLSKDOMMetadata', function test_OLSKDOMMetadata () {
 		deepEqual(_OLSKDOMMetadata(''), {});
 	});
 
-	it('sets title', function () {
+	it('extracts title', function () {
 		const title = Math.random().toString();
 		deepEqual(_OLSKDOMMetadata(`<title>${ title }</title>`), {
 			title,
 		});
 	});
 
-	it('sets meta:name', function () {
+	it('extracts meta:name', function () {
 		const name = Math.random().toString();
 		const content = Math.random().toString();
 		deepEqual(_OLSKDOMMetadata(`<meta name="${ name }" content="${ content }" />`), {
@@ -36,7 +36,7 @@ describe('OLSKDOMMetadata', function test_OLSKDOMMetadata () {
 		});
 	});
 
-	it('sets meta:property', function () {
+	it('extracts meta:property', function () {
 		const property = Math.random().toString();
 		const content = Math.random().toString();
 		deepEqual(_OLSKDOMMetadata(`<meta property="${ property }" content="${ content }" />`), {
@@ -44,7 +44,7 @@ describe('OLSKDOMMetadata', function test_OLSKDOMMetadata () {
 		});
 	});
 
-	it('sets meta:itemprop', function () {
+	it('extracts meta:itemprop', function () {
 		const itemprop = Math.random().toString();
 		const content = Math.random().toString();
 		deepEqual(_OLSKDOMMetadata(`<meta itemprop="${ itemprop }" content="${ content }" />`), {
@@ -52,7 +52,7 @@ describe('OLSKDOMMetadata', function test_OLSKDOMMetadata () {
 		});
 	});
 
-	it('sets link:itemprop', function () {
+	it('extracts link:itemprop', function () {
 		const itemprop = Math.random().toString();
 		const href = Math.random().toString();
 		deepEqual(_OLSKDOMMetadata(`<link itemprop="${ itemprop }" href="${ href }" />`), {
@@ -60,7 +60,7 @@ describe('OLSKDOMMetadata', function test_OLSKDOMMetadata () {
 		});
 	});
 
-	it('sets *:itemprop', function () {
+	it('extracts *:itemprop', function () {
 		const tag = uRandomElement('meta', 'link');
 		const itemprop = Math.random().toString();
 		const content = Math.random().toString();
@@ -69,7 +69,7 @@ describe('OLSKDOMMetadata', function test_OLSKDOMMetadata () {
 		});
 	});
 
-	it('sets json-ld', function () {
+	it('extracts json-ld', function () {
 		const key = Math.random().toString();
 		const value = Math.random().toString();
 		deepEqual(_OLSKDOMMetadata(`<script type="application/ld+json">[{"${ key }":"${ value }"}]</script>`), {
@@ -77,7 +77,7 @@ describe('OLSKDOMMetadata', function test_OLSKDOMMetadata () {
 		});
 	});
 
-	it('sets link:rel', function () {
+	it('extracts link:rel', function () {
 		const rel = Math.random().toString();
 		const href = Math.random().toString();
 		deepEqual(_OLSKDOMMetadata(`<link rel="${ rel }" href="${ href }" />`), {
