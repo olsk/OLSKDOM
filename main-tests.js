@@ -123,6 +123,7 @@ describe('OLSKDOMMetadataFundingDomains', function test_OLSKDOMMetadataFundingDo
 			'opencollective.com',
 			'github.com/sponsors',
 			'patreon.com',
+			'liberapay.com',
 		]);
 	});
 

@@ -44,6 +44,7 @@ const mod = {
 			'opencollective.com',
 			'github.com/sponsors',
 			'patreon.com',
+			'liberapay.com',
 		];
 	},
 	
