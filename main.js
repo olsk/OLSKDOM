@@ -19,7 +19,13 @@ const mod = {
 			})
 		}, [].concat.apply([], [doc.querySelector('title') ? {
 			title: doc.querySelector('title').text,
-		} : {}, JSON.parse((doc.querySelector('script[type="application/ld+json"]') || {}).innerHTML || '[]')]).reduce(function (coll, item) {
+		} : {}, (function() {
+			try {
+				return JSON.parse(doc.querySelector('script[type="application/ld+json"]').innerHTML);
+			} catch {
+				return [];
+			};
+		})()]).reduce(function (coll, item) {
 			return Object.assign(coll, item)
 		}, {}));
 	},
