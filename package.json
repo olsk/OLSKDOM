@@ -2,6 +2,6 @@
   "name": "OLSKDOM",
   "main": "main.js",
   "devDependencies": {
-    "jsdom": "latest"
+    "jsdom": "16.x"
   }
 }
